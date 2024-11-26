@@ -35,8 +35,6 @@ public class InventoryController {
     @PostMapping("/all")
     public void saveInventory(@RequestBody Inventory inventory) {
         try {
-//            String inventoryJson = objectMapper.writeValueAsString(inventory);
-//            kafkaProducerConfig.publish(inventoryJson);
             inventoryService.saveInventory(inventory);
         } catch (Exception e) {
             e.printStackTrace();
