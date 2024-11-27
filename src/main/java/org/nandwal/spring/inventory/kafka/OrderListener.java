@@ -45,7 +45,7 @@ public class OrderListener {
 
                 String orderStatusUpdatedJson = objectMapper.writeValueAsString(order);
                 inventoryProducerConfig.publishInventory(orderStatusUpdatedJson);
-                System.out.println("Stock availability for item id: " + order.getItemId() + " : " + isInventoryAvailable);
+                System.out.println("Stock availability for item id: " + order.getItemId() + " --> " + isInventoryAvailable);
             } catch (Exception e) {
                 e.printStackTrace();
             }
