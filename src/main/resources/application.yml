@@ -3,7 +3,7 @@ spring:
     stream:
       bindings:
         receiveOrderDetailsAndPublish-in-0:
-          content-type: application/json
+          content-type: application/json 
           destination: orders-details-topic
         receiveOrderDetailsAndPublish-out-0:
           destination: inventory-updates-topic
