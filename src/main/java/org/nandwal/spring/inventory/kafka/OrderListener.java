@@ -30,10 +30,10 @@ public class OrderListener {
     }
 
     @Bean
-    public Consumer<String> receiveOrderDetails() {
-        return message -> {
+    public Consumer<Order> receiveOrderDetails() {
+        return order -> {
             try {
-                Order order = objectMapper.readValue(message, Order.class);
+//                Order order = objectMapper.readValue(message, Order.class);
                 Inventory inventory = inventoryService.getInventoryById(order.getItemId());
                 Boolean isInventoryAvailable = isInventoryAvailable(order, inventory);
                 if(isInventoryAvailable) {
