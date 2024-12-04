@@ -5,11 +5,12 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "org.nandwal.spring.inventory")
+@Slf4j
 public class ConsumerApplication {
-    private static final Log log = LogFactory.getLog(ConsumerApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class, args);
