@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import java.util.function.Consumer;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration
+@Slf4j
 public class OrderListener {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -45,7 +47,7 @@ public class OrderListener {
 
                 String orderStatusUpdatedJson = objectMapper.writeValueAsString(order);
                 inventoryProducerConfig.publishInventory(orderStatusUpdatedJson);
-                System.out.println("Stock availability for item id: " + order.getItemId() + " --> " + isInventoryAvailable);
+                log.info("Stock availability for item id: " + order.getItemId() + " --> " + isInventoryAvailable);
             } catch (Exception e) {
                 e.printStackTrace();
             }
